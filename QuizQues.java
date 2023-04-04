@@ -224,6 +224,8 @@ public class QuizQues extends JFrame implements ActionListener {
         }
         else if (ae.getSource() == submit)
         {
+        //When submit button is pressed, the score is calculated and the QuizScore class is called
+         calculateScore();
          setVisible(false);
          new QuizScore(score);
         }
@@ -281,6 +283,16 @@ public class QuizQues extends JFrame implements ActionListener {
         ot4.setEnabled(true);
     }
     
+    //Calculating the score
+    void calculateScore ()
+    {
+        for(int i = 0; i<user_answer.length; i++){
+            if (user_answer[i][0].equals(answer[i][1])){ 
+             score+=10;
+            }
+         }
+    }
+
     void ans(){
         if (allbutton.getSelection() == null)
         {
